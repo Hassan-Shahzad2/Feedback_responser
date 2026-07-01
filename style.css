@@ -1,7 +1,6 @@
 /* ==========================================================================
    Feedback → Reply-by-mail
-   A stationery / correspondence concept: warm paper card on ink-blue dusk,
-   with a wax-seal signature element that stamps itself shut on success.
+   Beautiful on all screens - especially mobile
    ========================================================================== */
 
 :root{
@@ -39,18 +38,17 @@
 
 *{ margin:0; padding:0; box-sizing:border-box; }
 
-/* ========== LOCK: prevent user resizing of elements only ========== */
+/* LOCK: prevent user resizing */
 textarea, input, select, button {
-  resize: none !important;  /* prevent manual resize */
-  touch-action: none !important; /* prevent zoom on touch */
+  resize: none !important;
+  touch-action: none !important;
 }
 
-/* Allow scrolling naturally on all devices */
 html, body {
   height: 100%;
-  overflow-y: auto;  /* ALLOW SCROLLING */
+  overflow-y: auto;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 body{
@@ -70,7 +68,7 @@ body{
   }
 }
 
-/* ---------- backdrop: dusky gradient + soft grain-like dots ---------- */
+/* ---------- backdrop ---------- */
 .bg-gradient{
   position:fixed; inset:0; z-index:-3;
   background:
@@ -103,17 +101,17 @@ body{
   max-width:1180px;
   margin:0 auto;
   display:grid;
-  grid-template-columns: 1.05fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items:start;
-  gap: clamp(20px, 3vw, 56px);
-  padding: clamp(20px, 3vh, 40px) clamp(16px, 3vw, 40px);
+  gap: 40px;
+  padding: 40px 32px;
   min-height: 100vh;
 }
 
 /* ---------- brand panel ---------- */
 .brand-panel{ 
   animation: fadeSlideIn 0.8s cubic-bezier(.22,1,.36,1) both;
-  padding-top: clamp(10px, 2vh, 30px);
+  padding-top: 20px;
 }
 @keyframes fadeSlideIn{ from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);} }
 
@@ -122,7 +120,7 @@ body{
   font-family:var(--font-mono);
   font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
   color: var(--amber);
-  margin-bottom: clamp(8px,1.4vh,16px);
+  margin-bottom: 16px;
 }
 .eyebrow::before{
   content:""; width:16px; height:1px; background: var(--amber);
@@ -131,10 +129,10 @@ body{
 .brand-panel h1{
   font-family:var(--font-display);
   font-weight:600;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: 3.2rem;
   line-height:1.1;
   letter-spacing:-0.01em;
-  margin-bottom: clamp(10px,1.6vh,18px);
+  margin-bottom: 18px;
   color: var(--text-on-dark);
 }
 
@@ -145,18 +143,18 @@ body{
 
 .lede{
   color: var(--text-on-dark-dim);
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-size:1.15rem;
   line-height:1.6;
   max-width:500px;
-  margin-bottom: clamp(16px,2.4vh,28px);
+  margin-bottom: 28px;
 }
 
-/* ---------- signature: fountain-pen nib + wax seal ---------- */
+/* ---------- seal ---------- */
 .seal-stage{
   position:relative;
-  width: clamp(50px, 7vh, 88px);
-  height: clamp(50px, 7vh, 88px);
-  margin: 0 0 clamp(14px,2.2vh,26px) 0;
+  width: 80px;
+  height: 80px;
+  margin: 0 0 24px 0;
   flex-shrink: 0;
 }
 
@@ -197,14 +195,12 @@ body{
   stroke-dashoffset:40;
 }
 
-/* idle: gentle nib wiggle */
 .seal.idle .nib{ animation: nibIdle 3.4s ease-in-out infinite; }
 @keyframes nibIdle{
   0%,100%{ transform: rotate(-4deg); }
   50%{ transform: rotate(4deg); }
 }
 
-/* listening (feedback field focused): faster write motion + glow */
 .seal.listening .nib{ animation: nibWrite 0.5s ease-in-out infinite; }
 @keyframes nibWrite{
   0%,100%{ transform: translateX(0) rotate(-6deg); }
@@ -214,7 +210,6 @@ body{
   box-shadow: 0 10px 30px rgba(224,162,58,0.55), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -6px 10px rgba(0,0,0,0.25);
 }
 
-/* success: stamp press-down, morph to check, colour shift to teal */
 .seal.success .seal-core{
   background: radial-gradient(circle at 34% 28%, #4fa89b, var(--teal) 55%, var(--teal-dark) 100%);
   box-shadow: 0 10px 26px rgba(63,143,131,0.5), inset 0 2px 4px rgba(255,255,255,0.25), inset 0 -6px 10px rgba(0,0,0,0.25);
@@ -235,12 +230,12 @@ body{
   list-style:none;
   display:flex;
   flex-direction:column;
-  gap: clamp(8px,1.2vh,14px);
+  gap: 14px;
   max-width:440px;
 }
 .steps li{
   display:flex; gap:14px; align-items:baseline;
-  padding-bottom: clamp(8px,1.2vh,14px);
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--ink-line);
   animation: fadeSlideIn 0.8s cubic-bezier(.22,1,.36,1) both;
 }
@@ -266,7 +261,7 @@ body{
 }
 .steps p{ color: var(--text-on-dark-mute); font-size:0.82rem; line-height:1.45; }
 
-/* ---------- paper card (form) ---------- */
+/* ---------- card ---------- */
 .card-wrap{
   width:100%;
   max-width:420px;
@@ -281,7 +276,7 @@ body{
   color: var(--text-on-paper);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  padding: clamp(18px, 2.5vh, 28px) clamp(16px, 2vw, 28px);
+  padding: 28px;
 }
 
 .card::before{
@@ -292,7 +287,7 @@ body{
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
-.card-header{ margin-bottom: clamp(12px,1.5vh,18px); }
+.card-header{ margin-bottom: 18px; }
 .card-header h2{
   font-family: var(--font-display);
   font-weight:600;
@@ -301,7 +296,7 @@ body{
 }
 .subtitle{ color: var(--text-on-paper-dim); font-size:0.82rem; }
 
-.feedback-form{ display:flex; flex-direction:column; gap: clamp(10px,1.2vh,14px); }
+.feedback-form{ display:flex; flex-direction:column; gap: 14px; }
 
 .field{ display:flex; flex-direction:column; gap:4px; }
 .field label{
@@ -331,13 +326,13 @@ input, textarea{
   border-radius:0;
   padding: 7px 4px 7px 24px;
   outline:none;
-  resize: none !important;  /* LOCK: prevent resize */
+  resize: none !important;
 }
 textarea{ 
-  min-height: clamp(60px, 8vh, 100px); 
+  min-height: 80px; 
   line-height:1.5; 
   padding-top:9px;
-  overflow-y: auto;  /* ALLOW SCROLL INSIDE TEXTAREA */
+  overflow-y: auto;
 }
 
 input::placeholder, textarea::placeholder{ color: var(--text-on-paper-mute); }
@@ -356,12 +351,11 @@ input.invalid, textarea.invalid{ border-color:#a83a2c; }
 }
 .error-msg.show{ opacity:1; transform:translateY(0); }
 
-/* ---------- submit ---------- */
 .submit-btn{
   position:relative;
   display:flex; align-items:center; justify-content:center; gap:9px;
   margin-top:4px;
-  padding: clamp(10px,1.5vh,13px) 20px;
+  padding: 13px 20px;
   font-family: var(--font-body);
   font-size:0.96rem; font-weight:600; letter-spacing:0.01em;
   color: var(--paper);
@@ -409,7 +403,7 @@ input.invalid, textarea.invalid{ border-color:#a83a2c; }
 .inline-error.show{ opacity:1; transform:translateY(0); }
 
 /* ==========================================================================
-   Success / error modal — half-screen panel, blurred scrim
+   MODAL
    ========================================================================== */
 
 .modal-scrim{
@@ -433,7 +427,7 @@ input.invalid, textarea.invalid{ border-color:#a83a2c; }
   color: var(--text-on-paper);
   border-radius:6px;
   box-shadow: 0 40px 90px rgba(0,0,0,0.5);
-  padding: clamp(32px,5vh,48px) clamp(28px,4vw,40px);
+  padding: 40px 32px;
   text-align:center;
   transform: translateY(24px) scale(0.96);
   opacity:0;
@@ -515,14 +509,16 @@ input.invalid, textarea.invalid{ border-color:#a83a2c; }
 .modal-btn.retry{ background: var(--rust); }
 .modal-btn.retry:hover{ background: var(--rust-dark); }
 
-/* ---------- RESPONSIVE: Mobile First ---------- */
+/* ==========================================================================
+   RESPONSIVE - BEAUTIFUL MOBILE DESIGN
+   ========================================================================== */
 
-/* Tablets and smaller laptops */
+/* Tablets & smaller laptops */
 @media (max-width: 940px){
   .layout{ 
     grid-template-columns: 1fr; 
-    gap: 30px; 
-    padding: 30px 20px;
+    gap: 40px; 
+    padding: 32px 24px;
     align-items: center;
   }
   .brand-panel{ 
@@ -532,18 +528,20 @@ input.invalid, textarea.invalid{ border-color:#a83a2c; }
     align-items:center;
     padding-top: 0;
   }
-  .lede{ margin-left:auto; margin-right:auto; }
+  .lede{ margin-left:auto; margin-right:auto; max-width: 90%; }
   .eyebrow::before{ display:none; }
   .card-wrap{ 
     max-width: 480px; 
     margin:0 auto;
     justify-self: center;
+    width: 100%;
   }
   .steps{ 
     flex-direction: row; 
     gap: 16px;
     max-width: 100%;
     justify-content: center;
+    width: 100%;
   }
   .steps li{ 
     flex: 1; 
@@ -558,53 +556,123 @@ input.invalid, textarea.invalid{ border-color:#a83a2c; }
   .steps li:first-child{ border-left:none; padding-left:0; }
   .step-mark{ width:auto; margin-bottom:6px; }
   .steps p{ display:none; }
+  .brand-panel h1{ font-size: 2.8rem; }
 }
 
-/* Mobile phones */
+/* MOBILE PHONES - Beautiful & Refined */
 @media (max-width: 640px){
   .layout{ 
     padding: 20px 16px;
-    gap: 24px;
+    gap: 28px;
+    align-items: flex-start;
   }
+  
+  .brand-panel{ 
+    text-align: left;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
   .brand-panel h1{ 
-    font-size: 1.8rem;
+    font-size: 2rem;
+    line-height: 1.2;
   }
+  
   .lede{
     font-size: 0.95rem;
+    max-width: 100%;
+    margin-bottom: 20px;
   }
+  
+  .seal-stage{
+    width: 64px;
+    height: 64px;
+    margin: 0 0 18px 0;
+  }
+  
   .card-wrap{ 
     max-width: 100%;
+    padding: 0;
   }
+  
   .card{ 
-    padding: 20px 16px;
+    padding: 20px 18px;
+    border-radius: 8px;
   }
+  
+  .card-header h2{
+    font-size: 1.1rem;
+  }
+  
   .steps{
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     max-width: 100%;
+    width: 100%;
   }
+  
   .steps li{
     border-left: none;
     padding-left: 0;
     border-bottom: 1px solid var(--ink-line);
-    padding-bottom: 10px;
+    padding-bottom: 12px;
     flex-direction: row;
     align-items: center;
+    gap: 12px;
   }
-  .steps li:last-child{ border-bottom: none; }
-  .steps p{ display: block; }
-  .step-mark{ width: 20px; margin-bottom: 0; }
   
-  .modal-scrim{ align-items:flex-end; padding:0; }
+  .steps li:last-child{ 
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .steps p{ 
+    display: block;
+    font-size: 0.8rem;
+  }
+  
+  .step-mark{ 
+    width: 18px; 
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+  
+  .steps h3{
+    font-size: 0.85rem;
+  }
+  
+  input, textarea{ 
+    font-size: 0.85rem; 
+    padding: 6px 4px 6px 22px;
+  }
+  
+  .field-icon{ 
+    width: 15px; 
+    height: 15px; 
+    left: 1px;
+  }
+  
+  .submit-btn{
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .modal-scrim{ 
+    align-items:flex-end; 
+    padding:0; 
+  }
+  
   .modal-panel{
     max-width:100%;
     border-radius: 18px 18px 0 0;
-    padding: 30px 24px calc(28px + env(safe-area-inset-bottom));
+    padding: 28px 20px calc(28px + env(safe-area-inset-bottom));
     transform: translateY(100%);
     max-height:80vh;
     overflow-y:auto;
   }
+  
   .modal-scrim.open .modal-panel{ transform: translateY(0); }
+  
   .modal-panel::before{
     content:"";
     position:absolute; top:10px; left:50%;
@@ -613,12 +681,22 @@ input.invalid, textarea.invalid{ border-color:#a83a2c; }
     border-radius:4px;
     transform: translateX(-50%);
   }
+  
+  .modal-title{
+    font-size: 1.2rem;
+  }
+  
+  .modal-body{
+    font-size: 0.88rem;
+  }
 }
 
 /* Very small phones */
-@media (max-width: 400px){
-  .brand-panel h1{ font-size: 1.5rem; }
-  .card{ padding: 16px 12px; }
-  input, textarea{ font-size: 0.82rem; padding: 6px 4px 6px 20px; }
+@media (max-width: 380px){
+  .layout{ padding: 16px 12px; }
+  .brand-panel h1{ font-size: 1.6rem; }
+  .card{ padding: 16px 14px; }
+  input, textarea{ font-size: 0.82rem; padding: 5px 4px 5px 18px; }
   .field-icon{ width: 14px; height: 14px; left: 0; }
+  .seal-stage{ width: 56px; height: 56px; }
 }
